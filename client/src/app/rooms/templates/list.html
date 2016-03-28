@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="panel">
+      <div class="panel-heading">
+        Rooms
+      </div>
+      <table class="table table-bordered table-striped">
+        <tr ng-repeat="room in ctrl.rooms">
+          <td>
+            <a href="" ui-sref="app.rooms.view({roomId: room.id})">{{room.name}}</a>
+          </td>
+        </tr>
+      </table>
+      <div class="input-group">
+        <input type="text" class="form-control" ng-model="ctrl.room.name" placeholder="Add a new room!">
+        <span class="input-group-btn">
+          <input type="submit" ng-click="ctrl.addRoom()" class="btn btn-default" value="Create">
+        </span>
+      </div>
+    </div>
+
+  </div>
+</div>

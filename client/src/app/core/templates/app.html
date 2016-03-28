@@ -1,0 +1,51 @@
+<div ng-controller="MasterCtrl" id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar">
+      <li class="sidebar-main">
+        <a ng-click="toggleSidebar()">
+          Chat
+          <span class="menu-icon fa fa-bars"></span>
+        </a>
+      </li>
+      <li class="sidebar-title"><span>NAVIGATION</span></li>
+      <li class="sidebar-list">
+        <a href="" ui-sref="app.rooms.list">Rooms <span class="menu-icon fa fa-home"></span></a>
+      </li>
+    </ul>
+  </div>
+  <!-- End Sidebar -->
+
+  <div id="content-wrapper">
+    <div class="page-content">
+
+      <!-- Header Bar -->
+      <div class="row header">
+        <div class="col-xs-12">
+          <div class="user pull-right">
+            <div class="item dropdown" uib-dropdown>
+              <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                <i class="fa fa-user"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li class="link">
+                  <a href="#">
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="meta">
+          </div>
+        </div>
+      </div>
+      <!-- End Header Bar -->
+
+      <ui-view></ui-view>
+
+    </div><!-- End Page Content -->
+  </div><!-- End Content Wrapper -->
+</div><!-- End Page Wrapper -->
+

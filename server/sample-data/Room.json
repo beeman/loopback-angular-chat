@@ -1,0 +1,18 @@
+[
+  {
+    "id": "general-chat",
+    "name": "General Chat"
+  },
+  {
+    "id": "music",
+    "name": "Music"
+  },
+  {
+    "id": "programming",
+    "name": "Programming"
+  },
+  {
+    "id": "travel",
+    "name": "Travel"
+  }
+]

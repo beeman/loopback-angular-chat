@@ -31,5 +31,13 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Room": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Message": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -1,0 +1,27 @@
+[
+  {
+    "text": "Welcome in General Chat",
+    "roomId": "general-chat",
+    "userId": "1"
+  },
+  {
+    "text": "This is the place where you can chat about anything in general.",
+    "roomId": "general-chat",
+    "userId": "1"
+  },
+  {
+    "text": "Welcome in Music",
+    "roomId": "music",
+    "userId": "1"
+  },
+  {
+    "text": "Welcome in Programming",
+    "roomId": "programming",
+    "userId": "1"
+  },
+  {
+    "text": "Welcome in Travel",
+    "roomId": "travel",
+    "userId": "1"
+  }
+]

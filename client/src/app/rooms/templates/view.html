@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="panel">
+      <div class="panel-heading">
+        {{ctrl.room.name}}
+      </div>
+      <table class="table table-bordered table-striped">
+        <tr ng-repeat="message in ctrl.room.messages">
+          <td>
+            <strong>{{message.user.username}}: </strong>
+            {{message.text}}
+            <span class="pull-right">{{message.created | date: 'short'}}</span>
+          </td>
+        </tr>
+      </table>
+      <div class="input-group">
+        <input type="text" class="form-control" ng-model="ctrl.message.text" placeholder="Type your message here!">
+        <span class="input-group-btn">
+          <input type="submit" ng-click="ctrl.addMessage()" class="btn btn-default" value="Send">
+        </span>
+      </div>
+    </div>
+
+  </div>
+</div>
