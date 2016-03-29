@@ -24,6 +24,39 @@ boot(app, __dirname, function(err) {
   if (err) throw err;
 
   // start the server if `$ node server.js`
-  if (require.main === module)
-    app.start();
+  // start the server if `$ node server.js`
+  if (require.main === module){
+    //app.start();
+    app.io = require('socket.io')(app.start());
+    app.io.on('connection', function(socket){
+      console.log('a user connected');
+
+      socket.on('join', (roomId, user) => {
+        console.log('joining roomId', roomId);
+        socket.join(roomId);
+        app.io.to(roomId).emit('message', {
+          roomId,
+          user,
+          userId: user.id,
+          text: 'A user joined this room!',
+          created: new Date()
+        })
+      });
+
+      socket.on('sendMessage', (roomId, user, text) => {
+        console.log('sendMessage roomId', roomId, 'userId', user.id, 'text', text);
+        app.io.to(roomId).emit('message', {
+          roomId,
+          user,
+          userId: user.id,
+          text: text,
+          created: new Date()
+        })
+      });
+
+      socket.on('disconnect', function(){
+        console.log('user disconnected');
+      });
+    });
+  }
 });
