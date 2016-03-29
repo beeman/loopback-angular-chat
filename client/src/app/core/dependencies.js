@@ -1,7 +1,10 @@
 import angular from 'angular'
 
 import 'angular-cookies'
+import 'angular-formly'
+import 'angular-formly-templates-bootstrap'
 import 'angular-resource'
+import 'angular-sanitize'
 import 'angular-socket-io'
 import 'angular-ui-bootstrap'
 import 'angular-ui-router'
@@ -12,9 +15,12 @@ const MODULE_NAME = 'app.core.dependencies'
 
 const app = angular.module(MODULE_NAME, [
   'btford.socket-io',
+  'formly',
+  'formlyBootstrap',
   'lbServices',
   'ngCookies',
   'ngResource',
+  'ngSanitize',
   'ui.bootstrap',
   'ui.router'
 ])

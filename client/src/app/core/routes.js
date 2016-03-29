@@ -1,7 +1,8 @@
 import angular from 'angular'
 
 import templateApp from './templates/app.html'
-import templateTables from './templates/login.html'
+import templateLogin from './templates/login.html'
+import templateRegister from './templates/register.html'
 
 const MODULE_NAME = 'app.core.routes'
 
@@ -14,11 +15,18 @@ app.config(($stateProvider) => $stateProvider
   })
   .state('app.home', {
     url: '/',
+    template: '',
     controller: ($state) => $state.go('app.rooms.list')
   })
   .state('login', {
     url: '/login',
-    templateUrl: templateTables
+    controller: 'AuthCtrl',
+    templateUrl: templateLogin
+  })
+  .state('register', {
+    url: '/register',
+    controller: 'AuthCtrl',
+    templateUrl: templateRegister
   })
 )
 

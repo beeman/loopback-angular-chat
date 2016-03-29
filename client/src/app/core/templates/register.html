@@ -1,14 +1,14 @@
 <div id="loginbox" style="margin-top:50px;" class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-  <div class="panel panel-default" >
+  <div class="panel panel-default">
     <div class="panel-heading">
-      <div class="panel-title">Login</div>
+      <div class="panel-title">Register</div>
     </div>
     <div style="padding-top:30px" class="panel-body" >
       <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-      <formly-form model="user" fields="loginFields">
+      <formly-form model="newUser" fields="RegisterFields">
         <div class="pull-right">
-          <a href="" class="btn btn-default" ui-sref="register">Register</a>
-          <button type="submit" class="btn btn-primary" ng-click="login(user)">Login</button>
+          <a href="" class="btn btn-default" ui-sref="login">Login</a>
+          <button type="submit" class="btn btn-primary" ng-click="signup(newUser)">Register</button>
         </div>
       </formly-form>
     </div>

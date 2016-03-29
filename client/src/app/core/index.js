@@ -4,6 +4,7 @@ import './components'
 import './controllers'
 import './dependencies'
 import './routes'
+import './services'
 import './style'
 
 const MODULE_NAME = 'app.core'
@@ -13,6 +14,7 @@ angular.module(MODULE_NAME, [
   'app.core.controllers',
   'app.core.dependencies',
   'app.core.routes',
+  'app.core.services',
   'app.core.style'
 ])
 
