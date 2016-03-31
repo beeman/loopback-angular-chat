@@ -29,7 +29,9 @@
     "eslint-plugin-standard": "^1.3.2",
     "gulp": "^3.9.1",
     "gulp-esformatter": "^6.0.0",
+    "gulp-loopback-sdk-angular": "^0.1.4",
     "gulp-nodemon": "^2.0.6",
+    "gulp-rename": "^1.2.2",
     "jshint": "^2.5.6"
   },
   "repository": {
