@@ -25,12 +25,16 @@ From inside the project directory run
 
     $ npm start
 
+The server will start on http://0.0.0.0:3000/
+
 ## Starting the server
 
 From inside the project directory run
 
     $ cd client
     $ npm start
+
+The client will start on http://localhost:8080/
 
 # Credits
 

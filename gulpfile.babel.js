@@ -17,7 +17,7 @@ gulp.task('lint', () => gulp
 
 gulp.task('loopback', () => gulp
   .src('./server/server.js')
-  .pipe(loopbackAngular())
+  .pipe(loopbackAngular({ apiUrl: process.env.API_URL || 'http://0.0.0.0:3000/api' }))
   .pipe(rename('lb-services.js'))
   .pipe(gulp.dest('./client/lib'))
 )
