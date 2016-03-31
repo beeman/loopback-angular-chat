@@ -1,3 +1,3 @@
-module.exports = function(Room) {
+module.exports = function (Room) {
 
-};
+}
