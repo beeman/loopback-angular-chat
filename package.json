@@ -2,17 +2,16 @@
   "name": "loopback-angular-chat",
   "version": "1.0.0",
   "main": "server/server.js",
+  "license": "MIT",
   "scripts": {
-    "start": "node .",
-    "pretest": "jshint .",
-    "dev": "nodemon server/server.js --watch server --watch common --ext js,json",
-    "services": "lb-ng -u http://localhost:3000/api server/server.js client/src/lib/lb-services.js"
+    "start": "gulp",
+    "pretest": "gulp lint",
+    "dev": "gulp",
+    "postinstall": "cd client ; npm install"
   },
   "dependencies": {
     "compression": "^1.0.3",
     "cors": "^2.5.2",
-    "eslint-config-standard": "^5.1.0",
-    "gulp-eslint": "^2.0.0",
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.1.0",
@@ -29,14 +28,15 @@
     "eslint-plugin-standard": "^1.3.2",
     "gulp": "^3.9.1",
     "gulp-esformatter": "^6.0.0",
+    "gulp-eslint": "^2.0.0",
     "gulp-loopback-sdk-angular": "^0.1.4",
     "gulp-nodemon": "^2.0.6",
     "gulp-rename": "^1.2.2",
     "jshint": "^2.5.6"
   },
   "repository": {
-    "type": "",
-    "url": ""
+    "type": "git",
+    "url": "https://github.com/beeman/loopback-angular-chat/"
   },
   "description": "loopback-angular-chat"
 }
