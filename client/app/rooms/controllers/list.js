@@ -11,7 +11,7 @@ function RoomListCtrl (RoomsService, rooms) {
       .addRoom(this.room)
       .then()
       .then(() => RoomsService.find())
-      .then(rooms => {
+      .then((rooms) => {
         this.rooms = [].concat(rooms)
         this.room.name = ''
       })

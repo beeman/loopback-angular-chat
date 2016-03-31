@@ -1,7 +1,6 @@
 import angular from 'angular'
 
 function RoomsService (Room, Message) {
-
   this.find = () => Room.find().$promise
 
   this.findById = (id) => Room

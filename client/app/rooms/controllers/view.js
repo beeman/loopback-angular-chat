@@ -23,7 +23,6 @@ function RoomViewCtrl (RoomsService, room, socket) {
     console.log('socket.message', msg)
     this.room.messages.push(msg)
   })
-
 }
 
 const MODULE_NAME = 'app.rooms.controllers.view'

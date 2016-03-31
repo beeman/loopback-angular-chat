@@ -1,6 +1,17 @@
+// CommonJS package manager support
+if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.exports === exports) {
+  // Export the *name* of this Angular module
+  // Sample usage:
+  //
+  //   import lbServices from './lb-services';
+  //   angular.module('app', [lbServices]);
+  //
+  module.exports = "lbServices";
+}
+
 (function(window, angular, undefined) {'use strict';
 
-var urlBase = "http://localhost:3000/api";
+var urlBase = "/api";
 var authHeader = 'authorization';
 
 function getHost(url) {
@@ -2961,9 +2972,13 @@ module
     // Note: LocalStorage converts the value to string
     // We are using empty string as a marker for null/undefined values.
     function save(storage, name, value) {
-      var key = propsPrefix + name;
-      if (value == null) value = '';
-      storage[key] = value;
+      try {
+        var key = propsPrefix + name;
+        if (value == null) value = '';
+        storage[key] = value;
+      } catch(err) {
+        console.log('Cannot access local/session storage:', err);
+      }
     }
 
     function load(name) {

@@ -15,7 +15,7 @@ var ENV = process.env.npm_lifecycle_event
 var isTest = ENV === 'test' || ENV === 'test-watch'
 var isProd = ENV === 'build'
 
-module.exports = function makeWebpackConfig () {
+module.exports = (function makeWebpackConfig () {
   /**
    * Config
    * Reference: http://webpack.github.io/docs/configuration.html
@@ -41,7 +41,7 @@ module.exports = function makeWebpackConfig () {
    */
   config.output = isTest ? {} : {
     // Absolute output directory
-    path: __dirname + '/dist',
+    path: `${__dirname}/dist`,
 
     // Output path from the view of the page
     // Uses webpack-dev-server in development
@@ -193,7 +193,7 @@ module.exports = function makeWebpackConfig () {
       // Copy assets from the public folder
       // Reference: https://github.com/kevlened/copy-webpack-plugin
       new CopyWebpackPlugin([ {
-        from: __dirname + '/public'
+        from: `${__dirname}/public`
       } ])
     )
   }
@@ -209,4 +209,4 @@ module.exports = function makeWebpackConfig () {
   }
 
   return config
-}()
+})()

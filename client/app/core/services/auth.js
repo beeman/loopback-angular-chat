@@ -1,51 +1,48 @@
 import angular from 'angular'
 
 function Auth ($rootScope, User, $location) {
-
   var self = {
-    signup: function(data) {
-      User.create(data, function() {
-        User.login(data, function(data) {
-          self.currentUser = data.user;
-          $rootScope.islogged = true;
-          $location.path('/');
-        });
-      });
+    signup: function (data) {
+      User.create(data, function () {
+        User.login(data, function (data) {
+          self.currentUser = data.user
+          $rootScope.islogged = true
+          $location.path('/')
+        })
+      })
     },
-    login: function(user) {
-      User.login(user, function(data) {
-        self.currentUser = data.user;
-        console.log(self.currentUser);
-        $rootScope.islogged = true;
+    login: function (user) {
+      User.login(user, function (data) {
+        self.currentUser = data.user
+        console.log(self.currentUser)
+        $rootScope.islogged = true
         if (typeof $location.nextAfterLogin === 'undefined') {
-          $location.path('/#/rooms');
+          $location.path('/#/rooms')
         } else {
-          $location.path($location.nextAfterLogin);
+          $location.path($location.nextAfterLogin)
         }
-      });
+      })
     },
-    logout: function() {
-      User.logout(function() {
-        $location.path('/');
-        $rootScope.islogged = false;
-        self.currentUser = null;
-      });
+    logout: function () {
+      User.logout(function () {
+        $location.path('/')
+        $rootScope.islogged = false
+        self.currentUser = null
+      })
     },
-    ensureCurrentUser: function(cb) {
+    ensureCurrentUser: function (cb) {
       if (User.isAuthenticated() && self.currentUser == null) {
-        $rootScope.islogged = true;
-        User.getCurrent(function(data) {
-          self.currentUser = data;
-          cb();
-        });
+        $rootScope.islogged = true
+        User.getCurrent(function (data) {
+          self.currentUser = data
+          cb()
+        })
       }
     },
     currentUser: null
+  }
 
-  };
-
-  return self;
-
+  return self
 }
 
 const MODULE_NAME = 'app.core.services.auth'

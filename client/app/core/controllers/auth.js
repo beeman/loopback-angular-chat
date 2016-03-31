@@ -1,31 +1,30 @@
 import angular from 'angular'
 
 function AuthCtrl ($scope, Auth) {
-  $scope.signup = function(newUser){
-    Auth.signup(newUser);
-  };
+  $scope.signup = function (newUser) {
+    Auth.signup(newUser)
+  }
 
-  $scope.login = function(user){
-    Auth.login(user);
-  };
-
+  $scope.login = function (user) {
+    Auth.login(user)
+  }
 
   $scope.loginFields = [{
     key: 'email',
     type: 'input',
     templateOptions: {
       required: true,
-      label: 'Email',
+      label: 'Email'
     }
-  },{
+  }, {
     key: 'password',
     type: 'input',
     templateOptions: {
-      type:"password",
+      type: 'password',
       required: true,
-      label: 'Password',
+      label: 'Password'
     }
-  }];
+  }]
 
   $scope.RegisterFields = [
     {
@@ -33,31 +32,31 @@ function AuthCtrl ($scope, Auth) {
       type: 'input',
       templateOptions: {
         required: true,
-        label: 'First Name',
+        label: 'First Name'
       }
-    },{
+    }, {
       key: 'lastName',
       type: 'input',
       templateOptions: {
         required: true,
-        label: 'Last Name',
+        label: 'Last Name'
       }
-    },{
+    }, {
       key: 'email',
       type: 'input',
       templateOptions: {
         required: true,
-        label: 'Email',
+        label: 'Email'
       }
-    },{
+    }, {
       key: 'password',
       type: 'input',
       templateOptions: {
-        type:"password",
+        type: 'password',
         required: true,
-        label: 'Password',
+        label: 'Password'
       }
-    }];
+    }]
 }
 
 const MODULE_NAME = 'app.core.controllers.auth'
