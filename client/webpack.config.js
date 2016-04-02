@@ -1,27 +1,44 @@
 'use strict'
 
-// Modules
-var webpack = require('webpack')
-var autoprefixer = require('autoprefixer')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
+import webpack from 'webpack'
+import autoprefixer from 'autoprefixer'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 
 /**
  * Env
  * Get npm lifecycle event to identify the environment
  */
-var ENV = process.env.npm_lifecycle_event
-var isTest = ENV === 'test' || ENV === 'test-watch'
-var isProd = ENV === 'build'
+const ENV = process.env.npm_lifecycle_event
+const isTest = ENV === 'test' || ENV === 'test-watch'
+const isProd = ENV === 'build'
 
 module.exports = (function makeWebpackConfig () {
+  /**
+   * appPort
+   * Port to the app in development
+   */
+  const appPort = process.env.APP_PORT || 9000
+
+  /**
+   * appHost
+   * Hostname to the app in development
+   */
+  const appHost = process.env.APP_HOST || '0.0.0.0'
+
+  /**
+   * publicPath
+   * Url to the app in development
+   */
+  const publicPath = `http://${appHost}:${appPort}/`
+
   /**
    * Config
    * Reference: http://webpack.github.io/docs/configuration.html
    * This is the object where all configuration gets set
    */
-  var config = {}
+  const config = {}
 
   /**
    * Entry
@@ -45,7 +62,7 @@ module.exports = (function makeWebpackConfig () {
 
     // Output path from the view of the page
     // Uses webpack-dev-server in development
-    publicPath: isProd ? '/' : 'http://localhost:8080/',
+    publicPath: isProd ? '/' : publicPath,
 
     // Filename for entry points
     // Only adds hash in build mode
@@ -121,6 +138,9 @@ module.exports = (function makeWebpackConfig () {
       // Reference: https://github.com/WearyMonkey/ngtemplate-loader
       // Allow loading of Angular HTML templates through js
       test: /\.html$/,
+      exclude: [
+        /\.template\.html$/
+      ],
       loader: 'ngtemplate!html'
     } ]
   }
@@ -164,7 +184,7 @@ module.exports = (function makeWebpackConfig () {
     // Render index.html
     config.plugins.push(
       new HtmlWebpackPlugin({
-        template: './public/index.html.template',
+        template: './public/index.template.html',
         inject: 'body'
       }),
 
@@ -205,7 +225,14 @@ module.exports = (function makeWebpackConfig () {
    */
   config.devServer = {
     contentBase: './public',
-    stats: 'minimal'
+    host: appHost,
+    port: appPort,
+    stats: {
+      modules: false,
+      cached: false,
+      colors: true,
+      chunk: false
+    }
   }
 
   return config
