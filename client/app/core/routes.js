@@ -15,7 +15,7 @@ app.config(($stateProvider) => $stateProvider
   })
   .state('app.home', {
     url: '/',
-    template: '',
+    template: '<h1>home</h1>',
     controller: ($state) => $state.go('app.rooms.list')
   })
   .state('login', {
